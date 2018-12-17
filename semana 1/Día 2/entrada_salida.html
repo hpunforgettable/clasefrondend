@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+	<style type="" >
+	body 
+	{
+		margin:0;
+		padding:0; 
+		font-family: sans-serif;
+		font-size: 100%
+	}
+		
+	#entrada 
+	{
+		display: block;
+		border: none;
+		border-bottom: 1px solid #333;
+		width: 200px;
+		font-size:0.9em;
+		padding: 10px;
+	}
+
+	#salida 
+	{
+		position: absolute; 
+		bottom: 0;
+		width: 100%;
+		text-align: right;
+		font-family: impact;
+		color: #c03;
+		font-size: 3em;
+	}
+
+
+	</style>
+</head>
+<body>
+
+<form>
+	<input type="text" id="entrada" placeholder="escriba aquí">
+
+</form>
+	<p id="salida"></p>
+
+
+
+
+
+<script type="text/javascript">
+	window.onload= function () 
+	{
+
+		var entrada = document.getElementById("entrada");
+		var salida = document.getElementById("salida"); // marcamos el texto, marcamos cmd + D y para y se modifica el texto seleccionado y el siguiente igual salir ESC //
+		
+		entrada.oninput= function () 
+		{
+			salida.innerHTML=entrada.value.split("").reverse().join(""); // propiedad de elementos del DOM (innerHTML) contenido....value, el valor introducido)
+			// console.log (entrada.value.split("").reverse().join()) // split separa letra por letra
+			salida.style.backgroundColor="rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random())+","+Math.floor(Math.random())+")";
+
+
+		}
+
+	}
+</script>
+
+</body>
+</html>

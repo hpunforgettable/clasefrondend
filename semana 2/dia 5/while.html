@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>While</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+
+<input type="" name="texto" class="texto">
+<button class="boton">Traducir</button>
+
+<div>
+	<p class="imprimir">
+		
+	</p>
+</div>
+
+
+
+
+<script type="text/javascript">
+	window.onload = function()
+	{
+
+//********************** EJERCICIO prueba
+	
+		var contador=0;
+
+			while (contador<8) 
+			{
+
+				console.log(contador);
+
+				contador++;
+			}
+
+//********************** EJERCICIO 1
+
+
+		var boton=document.getElementsByClassName("texto")[0];
+		var texto=document.getElementsByClassName("texto")[0];
+		boton.onchange=function ()
+		{
+
+		var nombre=texto.value;
+	
+		var control=0;
+
+			nombre=nombre.split(""); /* separar cada letra una por una*/
+
+			while (control<nombre.length)
+			{
+				switch (nombre[control])
+				{
+					case "a": 
+						nombre[control]="4";
+					break;
+
+					case "e": 
+						nombre[control]="3";
+					break;
+
+					case "i": 
+						nombre[control]="1";
+					break;
+
+					case "o": 
+						nombre[control]="0";
+					break;
+
+					defaul:
+					break;
+
+				}
+
+				control++;
+
+			}
+			nombre=nombre.join("");
+					
+			addElement(nombre);		
+			console.log(nombre);
+
+		}
+
+
+		function addElement (texto) 
+		{ 
+
+				var newDiv = document.createElement("p"); 
+				newDiv.innerHTML = texto; 
+				document.body.appendChild(newDiv); 
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//********************** EJERCICIO 2
+
+		var nombre="aeioioeaaeio";
+		var original="aeioioeaaeio";
+		var control=0;
+
+			nombre=nombre.split(""); /* separar cada letra una por una*/
+
+			while (control<nombre.length)
+			{
+				switch (nombre[control])
+				{
+					case "a": 
+						nombre[control]="4";
+					break;
+
+					case "e": 
+						nombre[control]="3";
+					break;
+
+					case "i": 
+						nombre[control]="1";
+					break;
+
+					case "o": 
+						nombre[control]="0";
+					break;
+
+					defaul:
+					break;
+
+				}
+
+				control++;
+
+			}
+
+		console.log("El texto original era: "+ original);
+
+		nombre=nombre.join("");
+		console.log("El texto nuevo es ahora: "+nombre);
+
+//********************** EJERCICIO 3
+
+		var prueba = ["Ramón"]
+
+			prueba.push("Hristiyan"); /* sirve para introducir un elemento en la array */
+			console.log(prueba);
+
+
+
+
+
+
+
+
+
+
+	}
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+	<style>
+	body
+	{
+		margin:0;
+		padding:0; 
+		font-family: tahoma;
+	}
+	
+	form
+	{
+		width: 400px;
+		padding: 20px;
+		margin:100px auto 0;
+
+	}
+
+	.color 
+	{
+		height: 398px;
+		border:1px solid #000;
+
+	}
+	.controles
+	{
+		margin-top: 20px;
+
+	}
+	label
+	{
+		font-size: 0.9em;
+		display: block;
+	}
+
+	.control
+	{
+		display: block;
+		width: 100%;
+		margin: 10px 0;
+	}
+
+	</style>
+
+</head>
+
+<body>
+
+
+<form>
+	<div class="color"></div>
+
+		<div class="controles"> 
+
+			<label>rojo</label>
+			<input type="range" class="control" min="0" max="255" step="1" value="0"> 
+				<!-- atributos (range) añade la barrita 
+				min y max de profundidad de colores desde negro a blanco -->
+
+			<label>verde</label>
+			<input type="range" class="control" min="0" max="255" step="1" value="0">
+
+			<label>azul</label>
+			<input type="range" class="control" min="0" max="255" step="1" value="0">
+			<!-- cmd + D para seleccionar lo mismo -->		
+		</div>
+
+</form>
+
+
+<script type="">
+window.onload = function ()
+{
+
+	var cuadro_color = document.getElementsByClassName ("color")[0];
+	var controles = document.getElementsByClassName ("control"); // [ <input>, <input>, <input> ]
+		//																0       1        2
+
+	var colores=[0,0,0];
+	cuadro_color.style.backgroundColor="rgb("+colores[0]+","+colores[1]+","+colores[2]+")";
+		// El cuadro se vuelve negro
+
+		for(var i=0; i< controles.length; i++)
+		{
+			(function(indice){
+				controles[indice].oninput= function ()
+			{
+				// console.log (controles[0].value); // nos muestra el valor de la barra rojo al moverla ej valor 23 
+				// console.log (this.value); // lo mismo que lo anterior
+				 console.log(controles[indice].value);
+				  colores[indice] = controles[indice].value; //[0,0,0] = [<input>, <input>, <input>]
+				  cuadro_color.style.backgroundColor="rgb("+colores[0]+","+colores[1]+","+colores[2]+")";
+			}
+			}) (i) 
+
+		}
+
+
+
+		console.log (i);
+
+
+
+
+
+
+
+
+
+
+	(function prueba (nombre)
+	{
+		console.log ("Hola "+nombre);
+	}) ("Ramón"); // Función auto ejecutable //
+		
+		// prueba ("Hris");
+
+}
+	
+</script>
+
+</body>
+</html>

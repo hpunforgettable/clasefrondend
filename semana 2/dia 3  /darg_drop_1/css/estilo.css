@@ -1,0 +1,25 @@
+body 
+{
+	margin: 0;
+	padding: 0;
+}
+
+.contenedor 
+	{
+	position: relative;
+	width:498px;
+	height:498px;
+	border: 1px solid #333;
+	margin:100px auto 0; /* 100px de arriba automatico a los lados y 0 abajo */
+	}
+
+.imagen 
+
+	{	
+		background:url("../emoticono.png") no-repeat center;
+		background-size:100%;
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		display: block;
+	}

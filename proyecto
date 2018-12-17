@@ -1,0 +1,6 @@
+tengo mi lista de palabras en un json y mediante ajax selecciono de forma aleatoria las palabras
+-crear una lista en la que se vuelquen las palabras para que no se repitan
+- no queremos que recargue la pagina para que no 
+
+la palabra seleccionada la convertimos con un split en variable ["C","O","N"] para que la podamos recorrer con un for en el que recorra la lenght de mi palabra  y la compare con las rayitas - - - 
+coche i=5 por lo que si es una o i=2 y recorre el array hasta llegar a i=2, si pinchamos en i y no esta, recorremos el array i=5 y no esta la i por lo tanto un error = imagen

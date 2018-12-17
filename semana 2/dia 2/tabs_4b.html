@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+<style type="text/css">
+
+	body {
+		font-family: sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+
+	h1 
+	{
+		color: #069;
+	}
+
+	nav 
+	{
+		padding: 10px;
+	}
+
+	nav ul 
+	{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	nav ul li a 
+	{
+		display:block;
+		width: 200px;
+		padding: 5px;
+		text-decoration: none;
+		color: #333;
+	}
+
+	nav ul li a.activo 
+	{
+		border-left: 3px solid #999;
+	}
+
+	div 
+	{
+		padding: 10px;
+		display:none;
+	}
+
+	div.activa 
+	{
+		display:block;
+	}
+
+
+</style>
+
+</head>
+<body>
+
+
+	<h1> Tabs </h1>
+	<nav>
+		<ul>
+			<li>
+				<a class="activo" href="#contenido1" >Hola 1</a> 
+			</li>
+
+			<li>
+				<a class="" href="#contenido2">Hola 2</a>
+			</li>
+
+			<li>
+				<a class="" href="#contenido3">Hola 3</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	<div class="activa" id="contenido1">
+		<p>texto 1</p>
+	</div>
+
+	<div class="" id="contenido2">
+		<p>texto 2</p>
+	</div>
+
+	<div class="" id="contenido3">
+		<p>texto 3</p>
+	</div>
+
+
+
+
+
+	<script type="text/javascript">
+		window.onload=function () 
+		{
+			var enlaces=document.getElementsByTagName ("a");
+			var contenedores=document.getElementsByTagName ("div"); //los capturamos para quitar la clase y poner solo la activa
+				for (var i=0; i<enlaces.length; i++)
+					{
+						enlaces[i].onclick=function(evento)
+						{
+							evento.preventDefault();
+							console.log (this.attributes.href);
+							//console.log ( this.attributes.href.value.slice(1)); 
+							//************ this nos saca el valor sobre el que actuamos  ***********
+							//typeof funcion nativa que nos muestra que tipo de variable representa a continuacio (objeto)
+							// href objeto
+							// value tipo string
+							// slice (valor) --> quita el primer valor valor 1 hasta final si pongo otro 1,2 me muestra solo c (de contenedor)
+								for (j=0; j<enlaces.length; j++)
+								{
+									enlaces[j].className=""; 
+									contenedores[j].className="";
+								}
+								this.className="activo";
+								document.getElementById(this.href.split("#")[1]).className="activa"; // sacamos el href y lo dividimos el enclace en una array de 2 caracteres y me quedo con todo a partir de #
+								// quito la almohadilla y igualo el href a la id 
+
+
+						}
+					}
+
+		}
+
+
+
+
+	</script>
+
+</body>
+</html>

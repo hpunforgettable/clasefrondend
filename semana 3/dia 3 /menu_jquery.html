@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		
+	body 
+	{
+		margin: 0;
+		padding: 0;
+		font-family: tahoma;
+
+	}
+
+	.menu 
+	{
+		display: block; /* es para que ocupe todo el espacio de la line y se le puda poner un ancho y alto y otras características */
+		width: 100px;
+		font-size:0.8em;
+		color: #03c;
+		padding: 10px;
+		text-decoration: none;
+
+	}
+
+	.navegacion
+	{
+		margin: 0;
+		padding: 10px;
+		width: 200px;
+
+	}
+
+	.navegacion li a
+	{
+		display: block;
+		text-decoration: none;
+		color: #333;
+		transition: 0.5s;
+
+	}
+
+	.navegacion li a:hover
+	{
+		color: #ccc;
+		letter-spacing: 0.1em
+	}
+
+
+	</style>
+</head>
+<body>
+
+<a class="menu" href="#">Menu <span>+</span></a>
+
+<ul class="navegacion">
+
+	<li><a href="#">Fotos</a></li>
+	<li><a href="#">Videos</a></li>
+	<li><a href="#">Sobre Nosotros</a></li>
+	<li><a href="#">Contacto</a></li>
+</ul>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+
+<script type="text/javascript">
+
+	$ (document).ready(function(){
+
+		$(".navegacion").hide();
+		$(".menu").click(function(evento){
+			evento.preventDefault();
+			$(".navegacion").slideDown();
+		})
+
+
+
+
+	});
+
+</script>
+
+</body>
+</html>

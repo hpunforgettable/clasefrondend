@@ -1,0 +1,136 @@
+body 
+{
+	margin: 0;
+	padding: 0;
+	font-family: "Courier New";
+
+}
+
+p 
+{
+	padding: 0;
+	margin: 0;
+	line-height: 1em; /* interlinea */
+}
+.insertar
+{
+	width: 300px;
+	padding: 10px;
+	border-bottom: 1px dashed #CCC; 
+}
+
+.controles
+{
+	padding: 0 5px;
+	float: left;
+	width: calc(50% - 10px);  /* quiero que ocupe el 50% menos el pading del formulario */
+	text-align: center;
+}
+
+.clearfix
+{
+	clear: both; /* es para se reconozcan las cosas y no floten donde no es debido */
+}
+
+.controles:nth-child(1) input /*  seleccionar el primer hijo del formulario y empieza por 1 no por 0 */ 
+{
+
+	display: block;
+	width: calc(100% - 10px); /* 10px porque a cada lado le ponemos 5px de padding*/
+	padding: 5px;
+	border: 1px solid #CCC;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.controles:nth-child(2) input:nth-child(1)
+{
+	border-radius: 100%;
+	border: none;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	color: #FFF;
+	background-color: #C09;
+	margin: 5px auto;
+	display: block;
+	font-size: 1.5em; /* para agrandar el + y el padding para centrarlo */ 
+	padding: 0 0 31px;
+
+
+
+}
+
+.controles:nth-child(2) input:nth-child(2) .controles:nth-child(2) input:nth-child(3)
+{
+	display: inline-block; /* para poder centrar todo el contenido  del formulario*/
+	padding: 5px;
+	width: 20%;
+}
+
+.contenedor-array
+{
+	padding:10px;
+}
+
+.corchete
+{
+	width:20%;
+	border-top:5px solid #333;
+	border-bottom:5px solid #333;
+	height: 100px;
+	width: calc(3% - 5px);
+	float: left;
+}
+
+
+.corchete-izquerda 
+{
+	border-left:5px solid #333;
+}
+
+.corchete-derecha 
+{
+	border-right:5px solid #333;
+}
+
+.elemento
+{	
+	position: relative; /* permite que los elementos que hay dentro ocupen un espacio absoluto */ 
+	font-size: 4em;
+	padding:24px 10px 0;
+	height: 100px;
+	float:left;
+	color:red;
+
+}
+
+.close
+{
+	display: block;
+	font-size: 0.3em;
+	width: 5px;
+	color: #999;
+	text-decoration: none;
+	text-align: center;
+	padding:2px;
+	position: absolute;
+	top: 3px;
+	right:2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

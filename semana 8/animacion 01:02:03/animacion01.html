@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animacion 01</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+
+
+<a class="boton" href="#">Botón</a>
+<div class="cuadro"></div>
+
+<p class="texto">Bye!</p>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+
+<script type="text/javascript">
+	
+$ (document).ready(function()
+{
+	$(".boton").click(function(evento) // pasamos el evento porque es un enlace
+	{
+		evento.preventDefault();
+		// $(".cuadro").hide(); *** ocultar el enlace al hacer click
+		// $(".cuadro").toggle(); *** hace que si el elemento esta visible al hacer click lo oculta y si volvemos a hacer click lo vuelve a mostrar.
+		// $(".cuadro").fadeOut(); *** hace que desaparezca con una transcición
+		// $(".cuadro").fadeIn(); *** hace visible el elemento invisible
+		// $(".cuadro").fadeToggle(); *** hace que si el elemento esta visible al hacer click lo oculta y si volvemos a hacer click lo vuelve a mostrar con una transición
+		// $(".cuadro").slideUp(); *** desaparece desde abajo hacia arriba con una transcición, breve animación
+		$(".cuadro").slideToggle(3000, function(){
+			$(".texto").fadeIn();
+		}); // hace que si el elemento esta visible al hacer click lo oculta y si volvemos a hacer click lo vuelve a mostrar con una transición/ breve animación 
+
+
+
+	});
+	
+});
+
+</script>
+
+
+
+
+</body>
+</html>

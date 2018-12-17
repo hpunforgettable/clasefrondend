@@ -1,0 +1,21 @@
+body
+{
+	margin: 0;
+	padding: 0;
+}
+
+.slider
+{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	background-color: #FF00FF;
+}
+.imagen
+{
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}

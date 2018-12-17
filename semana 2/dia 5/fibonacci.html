@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fibonacci</title>
+
+</head>
+<body>
+
+	serie de fibonacci
+
+	1 | 1 | 2 | 3 | 5 | 8 | 13 | 21 .....
+
+
+
+
+
+
+
+<script type="text/javascript">
+		
+	window.onload=function()
+	
+	{
+
+		var fibonacci = [];
+		var cantidad=20000000000; //limite
+
+		for (var i=0; i<cantidad; i++)
+			{
+				if(i<2) //solo la posicion del indice 2 
+				{
+					fibonacci.push(1);
+				}
+				else
+				{
+
+					fibonacci.push(fibonacci[i-2]+fibonacci[i-1]); // [] cuando hay cochete habla de la posicion del array !!!!!!!!!!!!!!!
+				}
+			}
+			console.log(fibonacci);
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

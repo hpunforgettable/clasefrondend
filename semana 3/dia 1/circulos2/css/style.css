@@ -1,0 +1,77 @@
+body
+{
+	margin: 0;
+	padding: 0;
+}
+
+.puntuacion
+{
+	width: 400px;
+	margin: 50px auto 0;
+	font-family: impact;
+	color: #666;
+	font-size: 1.2em;
+	text-align: right;
+}
+
+.tablero
+{	background-image:url("https://www.mundogato.net/wp-content/uploads/exotic-shorthair-700x600.jpg");
+	background-size: 100%;	
+	border: 1px solid #CCC;
+	width: 49%;
+	height: 485px;	
+	margin: 20px auto 0; /* arriba lados abajo */
+}
+
+.uno
+{
+	margin:1px;
+	background-color: #424242;
+	width: 25px;
+	height: 25px;	
+	float:left;
+}
+
+.dos
+{
+	background-color: #D8D8D8;
+	width: 25px;
+	height: 25px;
+	float:left;
+	margin:1px auto;
+}
+
+
+.invisible 
+{
+	opacity: 0;
+	animation: desaparecer 0.5s; /* los key frames se reparten en 0-5 segundos */
+}
+
+/* Animación */ 
+
+@keyframes desaparecer 
+{
+	0%{
+	opacity: 1;
+	transform: scale(1);
+	}
+
+	5%{
+	opacity: 1;
+	transform: scale(1.4);
+	}
+
+	97%{
+	opacity: 1;
+	transform: scale(0.01);
+	}
+
+	100%{
+	opacity: 0;
+	transform: scale(0.01);
+	}
+
+}
+/* se activa en el 0%, escala 1(no cambia su tamaño) 
+	continua en el 5%, y cambia de escala*/ 

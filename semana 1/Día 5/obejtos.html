@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>objetos</title>
+	<meta charset="utf-8">
+
+</head>
+<body>
+
+
+
+
+	<script type="text/javascript">
+		window.onload=function() 
+		{
+			var persona=
+			{
+				nombre:"Hristiyan", /* clave nombre separador : valor "bla bla" */
+				edad:24,
+				profesion:"Diseñador Gráfico",
+				saludo:function()
+				{
+					return this.edad; /* imprime edad* / this siempre hacer referencia al objeto que se hizo clic o lo que este activo en este momento */
+				}
+			};
+			// persona.appellido="Petrov"; /* agrega otro valor al final  
+			// console.log (persona.edad); /* imprime solo la edad 
+			// console.log (persona); /* imprime todos los datos 
+			// console.log (persona.saludo()); 
+
+
+			function suma() 
+			{
+				var resultado=0; 
+				for (var i=0; i<arguments.length; i++) 
+				{
+					resultado+=arguments[i];
+				}
+				return resultado;
+			}
+				
+				console.log (suma(7,5,3,4,5,1,23));
+
+
+		}
+
+	</script>
+
+</body>
+</html>

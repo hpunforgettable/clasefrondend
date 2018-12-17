@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>JQuery1</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		
+		body 
+		{
+			background: rgba(212,228,249,1);
+		}	
+
+		.activo {
+			font-weight: bold;
+
+		}
+
+
+	</style>
+
+</head>
+<body>
+
+
+<h1 id="uno">JQuery primer ejercicio</h1>
+
+<p class="parrafo"><b>Lorem</b> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. <i>Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</i></p>
+
+<p><b>Lorem</b> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p><b>Lorem</b> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. <b>Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b></p>
+
+
+<li><a href="#" class="enlace">Enlace1</a></li>
+<li><a href="#" class="enlace">Enlace2</a></li>
+<li><a href="#" class="enlace">Enlace3</a></li>
+<li><a href="#" class="enlace">Enlace4</a></li>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+<script type="text/javascript">
+	
+$ (document).ready(function(){
+	$("#uno").click(function(){
+		console.log($(this));
+	});
+	var parrafos=$("p"); //almacenar en la variable parrafo todos los parrafos = document.getelementByTagName
+	console.log(parrafos.length);   // imprime la cantidad de parrafos que tenemos
+	$ (".enlace").each(function(indice){   // el each hace a los elementos un callback console log del indice
+		$(this).click(function(evento){
+			evento.preventDefault;
+			/* console.log(indice); */
+			$(".activo").removeClass("activo") // quita la clase activo
+			$(this).addClass("activo"); //pone la clase activo solo al que pinchamos y se convierte en negrita (con el css)
+
+		})
+	});
+		console.log(parrafos.hasClass("parrafo"));	// hasClass ¿Tiene clase? la var parrafos tiene esa clase parrafo (pone true or false)
+});
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

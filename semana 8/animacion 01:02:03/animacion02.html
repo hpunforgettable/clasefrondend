@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animacion 02</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+
+
+<a class="boton" href="#">Botón</a>
+<div class="cuadro">
+	
+</div>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+
+<script type="text/javascript">
+	
+$ (document).ready(function()
+{
+	$(".boton").click(function(evento) // pasamos el evento porque es un enlace
+	{
+		evento.preventDefault();
+		$(".boton").css("pointer-events","none"); // bloque el puntero para no poder volver a enviar
+		fade($(".cuadro"),1000);
+	});
+	
+	function fade (elemento,duracion){
+		var intervalo = 1/ ((duracion/1000)*60);
+		var opacidad= 1;
+		var animacion = setInterval(function(){
+
+			 elemento.css({opacity:opacidad});
+			 
+			 if (opacidad>0)
+			 {
+			 	opacidad -= intervalo;
+			 }
+
+			 else
+			 {
+			 	clearInterval(animacion);
+			 	$(".boton").css("pointer-events","all"); // sirve para no poder pulsar hasta que no acabe la animación
+			 }
+
+		},1000/60) // es un timer y los 60 son los fotogramas por segundo
+	} 
+});
+
+</script>
+
+
+
+
+</body>
+</html>

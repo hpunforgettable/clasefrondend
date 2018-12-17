@@ -1,0 +1,142 @@
+body
+{
+	margin: 0;
+	padding: 0;
+}
+
+.puntuacion
+{
+	width: 400px;
+	margin: 50px auto 0;
+	font-family: impact;
+	color: #666;
+	font-size: 1.2em;
+	text-align: right;
+}
+
+.tablero
+{
+	border: 1px solid #CCC;
+	width: 400px;
+	height: 400px;
+	padding: 10px;
+	margin: 20px auto 0; /* arriba lados abajo */
+}
+
+.circulo
+{
+	background-color: #06c;
+	width: 90px;
+	height: 90px;
+	border-radius: 100%; /* hace los div circulares */ 
+	margin: 5px;
+	float:left;
+}
+
+
+.invisible 
+{
+	opacity: 0;
+	animation: desaparecer 0.5s; /* los key frames se reparten en 0-5 segundos */
+}
+
+/* Animación */ 
+
+@keyframes desaparecer 
+{
+	0%{
+	opacity: 1;
+	transform: scale(1);
+	}
+
+	5%{
+	opacity: 1;
+	transform: scale(1.4);
+	}
+
+	97%{
+	opacity: 1;
+	transform: scale(0.01);
+	}
+
+	100%{
+	opacity: 0;
+	transform: scale(0.01);
+	}
+
+}
+/* se activa en el 0%, escala 1(no cambia su tamaño) 
+	continua en el 5%, y cambia de escala*/ 
+
+
+
+ .timer 
+ {
+ 	width:400px;
+ 	border: 1px solid #CCC;
+ 	height: 20px;
+ 	padding: 5px;
+ 	margin: 5px auto;
+ }
+
+
+ .bloque_timer 
+ {
+ 	background-color: #06c;
+ 	margin:0 0.5%; /* arriba y abajo 0 y los lados 0.5px */
+ 	height: 20px;
+ 	float: left;
+ }
+
+.fondo_modal 
+{
+	background-color: rgba(0,0,0,0.8);
+	position: fixed;
+	width: 100%;
+	top:0;
+	left:0;
+	height: 100vh; /* referente a la altura total que coja el 100% del navegador (para el movil funciona tb) */
+}
+
+.modal	
+{
+	width: 400px;
+	border: 1px solid #000;
+	padding: 20px 0;
+	border-radius: 5px;
+	margin: 200px auto 0;
+	background-color: #FFF;
+}
+
+.modal h3 
+{
+	color:#900;
+	font-weight: normal;
+	font-family: impact;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.reset 
+{
+	display: block;
+	background-color: #06c;
+	width: 150px;
+	padding: 10px 0;
+	text-align: center;
+	text-decoration: none;
+	font-family: impact;
+	font-size: 1em;
+	color: #FFF;
+	margin: 20px auto 0;
+	border-radius: 2px;
+}
+
+
+
+
+
+
+
+
+

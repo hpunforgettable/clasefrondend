@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+<style type="text/css">
+
+	body {
+		font-family: sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+
+	h1 
+	{
+		color: #069;
+	}
+
+	nav 
+	{
+		padding: 10px;
+	}
+
+	nav ul 
+	{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	nav ul li a 
+	{
+		display:block;
+		width: 200px;
+		padding: 5px;
+		text-decoration: none;
+		color: #333;
+	}
+
+	nav ul li a.activo 
+	{
+		border-left: 3px solid #999;
+	}
+
+	div 
+	{
+		padding: 10px;
+		display:none;
+	}
+
+	div.activa 
+	{
+		display:block;
+	}
+
+
+</style>
+
+</head>
+<body>
+
+
+	<h1> Tabs </h1>
+	<nav>
+		<ul>
+			<li>
+				<a href="" class="enlace activa">Hola 1</a> <!-- poner varias  clases separadas por espacio -->
+			</li>
+			<li>
+				<a href="" class="enlace">Hola 2</a>
+			</li>
+			<li>
+				<a href="" class="enlace">Hola 3</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	<div class="">
+		<p>texto 1</p>
+	</div>
+
+	<div class="">
+		<p>texto 2</p>
+	</div>
+
+	<div class="">
+		<p>texto 3</p>
+	</div>
+
+
+
+
+
+	<script type="text/javascript">
+		window.onload=function () 
+		{
+			var enlaces=document.getElementsByClassName ("enlace");
+			var contenedores=document.getElementsByTagName ("div");
+
+			for (var i =0; i<enlaces.length; i++) 
+			{
+				(
+					function (indice) //******* CLAUSURAAAAAA (function (indice){})(i); ************/
+					{
+						enlaces[indice].onclick=function(evento)
+						{
+							evento.preventDefault();
+
+							for ( var j=0; j<enlaces.length; j++) //da igual si enlaces o contenedores
+										{
+											enlaces[j].className="enlace"; 
+											contenedores[j].className="";
+											//quitar el claseeName de los contenedores
+										}
+
+										enlaces[indice].className="enlace activo";
+										contenedores[indice].className="activa";
+
+						}
+					}
+
+				)(i)
+			}
+			
+
+
+
+
+
+		}
+
+
+
+
+	</script>
+
+</body>
+</html>

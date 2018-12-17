@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+
+	<style type="text/css">
+
+	.cuadro{
+		width: 150px;
+		height: 150px;
+		background-color: blue;
+		position: relative;
+	}
+
+	</style>
+
+
+</head>
+<body>
+  <a href="#" class="boton">Pulsa Aqui</a>
+  <div class="cuadro"></div>
+
+<script 
+src="https://code.jquery.com/jquery-3.3.1.min.js" 
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous">
+</script>
+
+<script>
+	$(document).ready(function(){
+		$(".boton").click(function(evento){
+			evento.preventDefault();
+			$(".cuadro").animate({left:600},{duration:2000,easing:"swing", complete:function(){//easein-easeout- swing comienza rapido o lento y termina rapido o lento//
+				console.log("animacion");
+			},step:function(now){
+				console.log(now);
+			}}) 
+		}); 
+
+	}); 
+		
+
+	
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		 body{
+		 	margin: 0;
+		 	padding: 0;
+		 	font-family: sans-serif;
+		 	font-size: 100%;
+		 	color: red;
+		 }
+
+		form{
+			width: 300px;
+			padding: 20px;
+			background-color: gray;
+			border-radius: 10px;
+			border: 1px solid #ccc;
+			margin: 50px auto 0;
+
+		}
+
+		.bloque_formulario{
+			padding: 10px 0;
+		}
+
+		label{
+			display: block;
+			color: #999;
+			text-transform: uppercase;
+			font-size: 0.7em;
+			letter-spacing: 0.1em;
+			color: white;
+		}
+		input[type="text"]{
+			display: block;
+			width: 100%;
+			border: none;
+			border-bottom: 1px dashed #999;
+			padding: 5px 0;
+			text-align: center;
+			font-size: 0.9em;
+			color:#333;
+		}
+		input[type="submit"]{
+			display: block;
+			width: 80px;
+			border-radius: 5px;
+			border:none;
+			color: #fff;
+			text-align: center;
+			text-transform: uppercase;
+			padding: 8px 0;
+			margin: 10px auto 0;
+			background-color: #066;
+			background-image: linear-gradient(#0c3,#066);
+		}
+
+		.error{
+			color: #f00;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 0.8em;
+			letter-spacing: 0.1em;
+			display: none;
+		}
+
+		.ver_error{
+			display: block;
+		}
+
+
+
+
+
+	</style>
+</head>
+<body>
+<form id="formulario">
+	<div class="bloque_formulario">
+			<label>
+				Nombre 
+			</label>	
+					<input type="text" class="entrada">
+                    <p class="error">Hay un error en este campo1</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				Apellidos 
+			</label>	
+				    <input type="text" class="entrada">
+					<p class="error">Hay un error en este campo2</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				E-mail 
+			</label>	
+					<input type="text" class="entrada">
+					<p class="error">Hay un error en este campo</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				Telefono
+			</label>	
+		            <input type="text" class="entrada">
+		            <p class="error">Hay un error en este campo</p>
+	</div>
+		<div class="bloque_formulario">
+			<label>
+				Fecha de Nacimiento
+			</label>	
+		            <input type="text" class="entrada" placeholder="DD/MM/YYYY">
+		            <p class="error">Hay un error en este campo</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				Codigo Postal 
+			</label>	
+					<input type="text" class="entrada">
+					<p class="error">Hay un error en este campo</p>
+	</div>
+	<div class="bloque_formulario">
+			<label>
+				Web
+			</label>	
+		            <input type="text" class="entrada">
+		            <p class="error">Hay un error en este campo</p>
+	</div>
+
+		<input type="submit" value="Registrate" class="enviar">
+</form>
+
+ <script>
+ 	window.onload=function ()
+ 	{
+ 		
+ 		var formulario = document.getElementById("formulario");
+ 		var textointroducido = document.getElementsByClassName("entrada");
+ 		var error = document.getElementsByClassName("error");
+ 		var vacio = "";
+ 		
+
+ 		console.log(textointroducido);
+
+ 		formulario.onsubmit = function(e) // solop lo hacemos cuando hay un submit sino sera enviar.onclick
+ 		{  
+ 			e.preventDefault();
+ 			var enviar = true;
+ 			var datos = {};
+
+ 			for ( var i=0; i<error.length; i++)
+ 			{
+ 				error[i].className="error";
+ 				
+ 			}
+
+	 		 for(var i=0; i<textointroducido.length; i++)
+	 		 {
+	 		 		//console.log(textointroducido[i].value);	
+	 		 		
+	 		 }
+					// NOMBRE 
+
+				if ( textointroducido[0].value == vacio )
+	 		 		{
+	 		 			error[0].className="error ver_error";
+	 		 			enviar= "mal";
+
+	 		 		}
+	 		 	else 
+	 		 	{
+	 		 		if ( /^[A-Z][a-z]*$/.test(textointroducido[0].value) )
+			 		 		{
+			 		 			
+			 		 			datos.nombre=textointroducido[0].value;
+			 		 		}
+		 		 		else
+			 		 		{
+			 		 			error[0].className="error ver_error";
+			 		 			enviar= "mal";
+			 		 			
+			 		 		}
+
+	 		 	}
+
+	 		 		// APELLIDO
+
+	 		 	if ( textointroducido[1].value == vacio )
+	 		 		{
+	 		 			error[1].className="error ver_error";
+	 		 			enviar= "mal";
+
+	 		 		}
+	 		 	else 
+	 		 	{
+	 		 		if ( /^[A-Z][a-z]*$/.test(textointroducido[1].value) )
+			 		 		{
+			 		 			datos.apellidos=textointroducido[1].value;
+			 		 		}
+		 		 		else
+			 		 		{
+			 		 			error[1].className="error ver_error";
+			 		 			enviar= "mal";
+			 		 		}
+
+	 		 	}
+
+
+	 		 			// EMAIL 
+
+	 		 	if ( textointroducido[2].value == vacio )
+	 		 		{
+	 		 			error[2].className="error ver_error";
+	 		 			enviar= "mal";
+
+	 		 		}
+	 		 	else 
+	 		 	{
+	 		 		if ( /^[A-Za-z0-9_%\+\-\.]+@[A-Za-z0-9]+\.?[A-Za-z]{2,3}\.[A-Za-z]{2,3}$/.test(textointroducido[2].value) )
+			 		 		{
+			 		 			datos.email=textointroducido[2].value;
+			 		 		}
+		 		 		else
+			 		 		{
+			 		 			error[2].className="error ver_error"
+			 		 			enviar= "mal";
+			 		 		}
+
+	 		 	}
+
+
+	 		 		// TELÉFONO 
+
+	 		 	if ( textointroducido[3].value == vacio )
+	 		 		{
+	 		 			error[3].className="error ver_error";
+	 		 			enviar= "mal";
+
+	 		 		}
+	 		 	else 
+	 		 	{
+	 		 		if ( /^\d{9}$/.test(textointroducido[3].value) )
+			 		 		{
+			 		 			datos.telefono=textointroducido[0].value;
+			 		 		}
+		 		 		else
+			 		 		{
+			 		 			error[3].className="error ver_error";
+			 		 			enviar= "mal";
+			 		 		}
+
+	 		 	}
+				
+
+
+	 		 		// FECHA 
+
+	 		 	if ( textointroducido[4].value == vacio )
+	 		 		{
+	 		 			error[4].className="error ver_error";
+	 		 			enviar= "mal";
+
+	 		 		}
+	 		 	else 
+	 		 	{
+	 		 		if ( /^[0123][0-9]\/[01][0-9]\/(19|20)[0-9][0-9]$/.test(textointroducido[4].value) )
+			 		 		{
+			 		 			datos.fecha=textointroducido[0].value;
+			 		 		}
+		 		 		else
+			 		 		{
+			 		 			error[4].className="error ver_error";
+			 		 			enviar= "mal";
+			 		 		}
+
+	 		 	}
+
+	 		 	// CÓDIGO POSTAL 
+
+	 		 	if ( textointroducido[5].value == vacio )
+	 		 		{
+	 		 			error[5].className="error ver_error";
+	 		 			enviar= "mal";
+
+	 		 		}
+	 		 	else 
+	 		 	{
+	 		 		if ( /^\d{5}/.test(textointroducido[5].value) )
+			 		 		{
+			 		 			datos.codigo_postal=textointroducido[0].value;
+			 		 		}
+		 		 		else
+			 		 		{
+			 		 			error[5].className="error ver_error";
+			 		 			enviar= "mal";
+			 		 		}
+
+	 		 	}
+
+
+	 		 	// WEB 
+
+	 		 	if ( textointroducido[6].value == vacio )
+	 		 		{
+	 		 			error[6].className="error ver_error";
+	 		 			enviar= "mal";
+
+	 		 		}
+	 		 	else 
+	 		 	{
+	 		 		if ( /^w{3}\.[A-Za-z]+\.[A-Za-z]{2,3}$/.test(textointroducido[6].value) )
+			 		 		{
+			 		 			datos.web=textointroducido[0].value;
+			 		 		}
+		 		 		else
+			 		 		{
+			 		 			error[6].className="error ver_error";
+
+			 		 			enviar= "mal";
+			 		 		}
+
+	 		 	}
+
+
+	 		 	if(enviar != "mal"){
+
+	 		 		
+	 		 		console.log(datos);
+
+	 		 	} 
+
+	 		 
+ 		}
+ 			
+
+
+ 	}
+
+
+
+
+
+
+
+
+ </script>
+
+
+</body>
+</html>

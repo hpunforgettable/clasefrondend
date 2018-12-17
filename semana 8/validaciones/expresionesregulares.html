@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+
+<script type="text/javascript">
+	window.onload=function()
+	{
+		// var reg = /^T|t(a|[aeiuo])?m$/; // expresion regular se especifica con slash / /
+		// console.log(reg.test("Taam")); 
+		/* /a/ nos da true porque hay al menos una "a" en el texto | si no hay ninguna a da "false"
+
+		.  /t.m/ dara true a tim tom etc porque wildcard (.) significa que se puede introducir cualquier caracter siempre y cuando sea t algo m
+
+		[] /t[aeiou]m limitamos que de true solo a tam tem tim tom tum
+
+		^ /^t[aeiou]m$ ^ limita a que por delante de t no haya nada por tanto que sea la primera letra y $ limita que no podamos poner nada detras de la "m" sino dara "false"
+
+		$ /t[aeiuo]+m$/ el simbolo de suma significa que pueden repetirse cualquiera de los valores especificados entre corchetes aa ae aei aeioiuaeiou ...
+
+		* ^/t[aeiuo]*m$/ el símbolo * permite que el valor sea 0 ó más 1 ejemplo: tm, teeeeeem, tiiiiim, es decir como con el + pero nos da la posibilidad de no poner ningun valor.
+
+		? /^t[aeiuo]?m$/ el símbolo ? nos condiciona a que el valor introducido sea o al menos uno o ninguno, ejemplo tm tam tem tim tum tom.
+
+		|  /^T|t[aeiuo]?m$/ el condicional | nos permite poner o un caracter u otro 
+
+		/^T|t(a|[aeiuo])?m$/ T o t, a ó nada ó una vez a,e,i,o,u + m
+
+		// CARACTERES     . [] ^ $ +  * ? |   \w (es un atajo para añadir texto)                  
+		*/
+
+
+		var reg = /^[0123][0-9]\/[01][0-9]\/(19|20)[0-9][0-9]$/;
+		console.log(reg.test("31/12/2019"));
+
+		/* \d\d especifica que hay que poner al menos 2 numeros
+		    /^\d{5}$/    nos obliga a que sean mínomo 5 números y máximo 5
+		    /^\d{5,8}$/  mínimo 5 máximo 8
+		    /^\d{5,}$/   mínimo 5 máximo infinito
+		    ([a-z-A-Z]|\d){5,} al menos una letra de a a la z minúsicula o Mayúscula + mínimo 5 números y máximo infinito.
+		    /^28\d{3$}/ 
+		    d\/m\/y / nos sirve para escapar de la cadena en este caso tenemos que poner d/m/y 
+	
+		*/
+
+		var reg2 = /^[A-Z][a-z]*$/;
+		console.log(reg2.test("Hristiyan")); // primera Mayúscula y segunda ninguna o infinito
+
+		var reg3 = /^[A-Za-z0-9_%\+\-\.]+@[A-Za-z0-9]+\.?[A-Za-z]{2,3}\.[A-Za-z]{2,3}$/
+		console.log(reg3.test("hpunforgettable@gmail.es.com"));
+
+	}
+</script>
+
+</body>
+</html>

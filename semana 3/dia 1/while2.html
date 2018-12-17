@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>While</title>
+	<meta charset="utf-8">
+
+
+
+	<style type="text/css">
+	body {
+		margin: 50px;
+		padding: 0;
+	}
+
+	#primero, #segundo
+	{
+		background:#B4B4B4;
+		border-radius: 15px;
+		width: 50%;
+		height:80%;
+		margin:20px auto;
+
+		
+	}
+
+	p {
+		margin: 0%;
+		padding:5%;
+		text-align: center;
+		color: #fff;
+		font-family: Arial;
+		font-size: 100%;
+	}
+
+/* p {
+  animation-duration: 3s;
+  animation-name: slidein;
+ 
+
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+p{
+	diplay:block;
+
+}
+
+
+}
+*/
+
+
+
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<table align="center">
+	<tr>
+		<td>
+			<input type="text" name="texto" class="texto" id="boton2">
+		<button align="center" id="clearbutton">Traducir</button>
+		</td>
+		
+			<td>
+					<input type="text" class="texto2">
+			<button id="clearbutton2">Traducir</button>
+			</td>
+		
+				<td>
+					<button class="cambia" id="clearbutton3">Borrar contenido</button>
+
+				</td>
+
+	</tr>
+	
+	
+</table>
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+	window.onload = function()
+	{
+
+			
+		var boton=document.getElementsByClassName("texto")[0];
+		var texto=document.getElementsByClassName("texto")[0];
+		boton.onchange=function ()
+		{
+
+		var nombre=texto.value;
+	
+		var control=0;
+
+			nombre=nombre.split(""); /* separar cada letra una por una*/
+
+			while (control<nombre.length)
+			{
+				switch (nombre[control])
+				{
+					case "a": 
+						nombre[control]="1";
+					break;
+
+					case "b": 
+						nombre[control]="2";
+					break;
+
+					case "c": 
+						nombre[control]="3";
+					break;
+
+					case "d": 
+						nombre[control]="4";
+					break;
+
+					case "e": 
+						nombre[control]="5";
+					break;
+
+					case "f": 
+						nombre[control]="6";
+					break;
+
+					case "g": 
+						nombre[control]="7";
+					break;
+
+					case "h": 
+						nombre[control]="8";
+					break;
+
+					case "i": 
+						nombre[control]="9";
+					break;
+
+					case "j": 
+						nombre[control]="}";
+					break;
+
+					case "k": 
+						nombre[control]=";";
+					break;
+
+					case "l": 
+						nombre[control]="?";
+					break;
+
+					case "m": 
+						nombre[control]="¿";
+					break;
+
+					case "n": 
+						nombre[control]="!";
+					break;
+
+					case "ñ": 
+						nombre[control]="|";
+					break;
+
+					case "o": 
+						nombre[control]="@";
+					break;
+
+					case "p": 
+						nombre[control]="ç";
+					break;
+
+					case "q": 
+						nombre[control]="$";
+					break;
+
+					case "r": 
+						nombre[control]="%";
+					break;
+
+					case "s": 
+						nombre[control]="&";
+					break;
+
+					case "t": 
+						nombre[control]="/";
+					break;
+
+					case "u": 
+						nombre[control]="(";
+					break;
+
+					case "v": 
+						nombre[control]=")";
+					break;
+
+					case "w": 
+						nombre[control]="=";
+					break;
+
+					case "x": 
+						nombre[control]="+";
+					break;
+
+					case "y": 
+						nombre[control]="-";
+					break;
+
+					case "z": 
+						nombre[control]="{";
+					break;
+
+					defaul:
+					break;
+
+				}
+
+				control++;
+
+			}
+			nombre=nombre.join("");
+					
+			addElement(nombre);		
+			console.log(nombre);
+
+		}
+
+
+		function addElement (texto) 
+		{ 
+
+				var newDiv = document.createElement("div");
+				var newp = document.createElement("p");
+				newDiv.className = "primero";
+				newDiv.id = "primero";
+
+				newp.innerHTML = texto;
+				newDiv.appendChild(newp);  
+				document.body.appendChild(newDiv); 
+
+				setTimeout(function(){
+				  $(newDiv).remove();
+				}, 3000);
+			}
+
+
+
+
+//********************** inversa
+
+		var boton2=document.getElementsByClassName("texto2")[0];
+		var texto2=document.getElementsByClassName("texto2")[0];
+		boton2.onchange=function ()
+		{
+
+		var nombre2=texto2.value;
+	
+		var control2=0;
+
+			nombre2=nombre2.split(""); /* separar cada letra una por una*/
+
+			while (control2<nombre2.length)
+			{
+				switch (nombre2[control2])
+				{
+					case "1": 
+						nombre2[control2]="a";
+					break;
+
+					case "2": 
+						nombre2[control2]="b";
+					break;
+
+					case "3": 
+						nombre2[control2]="c";
+					break;
+
+					case "4": 
+						nombre2[control2]="d";
+					break;
+
+					case "5": 
+						nombre2[control2]="e";
+					break;
+
+					case "6": 
+						nombre2[control2]="f";
+					break;
+
+					case "7": 
+						nombre2[control2]="g";
+					break;
+
+					case "8": 
+						nombre2[control2]="h";
+					break;
+
+					case "9": 
+						nombre2[control2]="i";
+					break;
+
+					case "}": 
+						nombre2[control2]="j";
+					break;
+
+					case ";": 
+						nombre2[control2]="k";
+					break;
+
+					case "?": 
+						nombre2[control2]="l";
+					break;
+
+					case "¿": 
+						nombre2[control2]="m";
+					break;
+
+					case "!": 
+						nombre2[control2]="n";
+					break;
+
+					case "|": 
+						nombre2[control2]="ñ";
+					break;
+
+					case "@": 
+						nombre2[control2]="o";
+					break;
+
+					case "ç": 
+						nombre2[control2]="p";
+					break;
+
+					case "$": 
+						nombre2[control2]="q";
+					break;
+
+					case "%": 
+						nombre2[control2]="r";
+					break;
+
+					case "&": 
+						nombre2[control2]="s";
+					break;
+
+					case "/": 
+						nombre2[control2]="t";
+					break;
+
+					case "(": 
+						nombre2[control2]="u";
+					break;
+
+					case ")": 
+						nombre2[control2]="v";
+					break;
+
+					case "=": 
+						nombre2[control2]="w";
+					break;
+
+					case "+": 
+						nombre2[control2]="x";
+					break;
+
+					case "-": 
+						nombre2[control2]="y";
+					break;
+
+					case "{": 
+						nombre2[control2]="z";
+					break;
+
+					defaul:
+					break;
+
+
+				}
+
+				control2++;
+
+			}
+			nombre2=nombre2.join("");
+					
+			addElement(nombre2);		
+			console.log(nombre2);
+
+
+
+
+				function addElement2 (texto2) 
+		{ 
+
+				var newDiv2 = document.createElement("div");
+				var newp2 = document.createElement("p");
+				newDiv2.id = "segundo";
+				newp2.innerHTML = texto2;
+				newDiv2.appendChild(newp2);  
+				document.body.appendChild(newDiv2); 
+
+				setTimeout(function(){
+				  $(newDiv2).remove();
+				}, 3000);
+
+			}
+
+		}
+
+
+	}
+
+// ************** Limpiar los input tras pulsar el botón
+
+
+
+// Creamos variable que almacenara el ID a borrar
+var inputfocused = "";
+
+// Le añadimos función de borrar al botón
+document.getElementById("clearbutton").onclick = limpiaCampo;
+
+// En este caso concreto seleccionamos todos los input text y password
+// para una selección más precisa se puede usa una clase
+// para una selección más general, se puede usar solo 'input'
+var elements = document.querySelectorAll("input");
+// Por cada input field le añadimos una funcion 'onFocus'
+for (var i = 0; i < elements.length; i++) {
+  elements[i].addEventListener("focus", function() {
+    // Guardamos la ID del elemento al que hacemos 'focus'
+    inputfocused = this;
+  });
+}
+
+function limpiaCampo() {
+  //Utilizamos el elemento al que hacemos focus para borrar el campo.
+  inputfocused.value = "";
+}
+
+
+
+
+
+
+var inputfocused2 = "";
+
+document.getElementById("clearbutton2").onclick = limpiaCampo2;
+var elements2 = document.querySelectorAll("input");
+for (var i = 0; i < elements2.length; i++) {
+  elements2[i].addEventListener("focus", function() {
+    inputfocused2 = this;
+  });
+}
+
+function limpiaCampo2() {
+  inputfocused2.value = "";
+}
+
+
+
+
+
+
+
+var inputfocused3 = "";
+
+document.getElementById("clearbutton3").onclick = limpiaCampo3;
+var elements3 = document.querySelectorAll("input");
+for (var i = 0; i < elements3.length; i++) {
+  elements3[i].addEventListener("focus", function() {
+    inputfocused3 = this;
+  });
+}
+
+function limpiaCampo3() {
+  inputfocused3.value = "";
+}
+
+
+
+
+
+
+</script>
+
+
+<script>
+
+
+
+$( ".cambia" ).click(function() {
+  $( "#primero, #segundo" ).remove();
+});
+
+
+
+
+// Borrar tras 2 segundos
+
+setTimeout(function(){
+  $(".primero").remove();
+}, 2000);
+
+
+</script>
+
+
+
+</body>
+</html>

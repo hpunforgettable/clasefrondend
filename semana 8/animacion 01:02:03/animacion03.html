@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animacion 03</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+
+
+<a class="boton" href="#">Botón</a>
+<div class="cuadro">
+	
+</div>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+
+<script type="text/javascript">
+	
+$ (document).ready(function()
+{
+	$(".boton").click(function(evento) // pasamos el evento porque es un enlace
+	{
+		evento.preventDefault();
+		$(".cuadro").animate({left:600},1000);
+		$(".cuadro").animate({width:10},1000);
+		$(".cuadro").animate({heigth:"50px"},1000);
+		$(".cuadro").animate({top:300},1000);
+	});
+	
+	
+});
+
+</script>
+
+
+
+
+</body>
+</html>

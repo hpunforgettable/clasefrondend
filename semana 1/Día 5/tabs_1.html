@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+<style type="text/css">
+
+	body {
+		font-family: sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+
+	h1 
+	{
+		color: #069;
+	}
+
+	nav 
+	{
+		padding: 10px;
+	}
+
+	nav ul 
+	{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	nav ul li a 
+	{
+		display:block;
+		width: 200px;
+		padding: 5px;
+		text-decoration: none;
+		color: #333;
+	}
+
+	nav ul li a.activo 
+	{
+		border-left: 3px solid #999;
+	}
+
+	div 
+	{
+		padding: 10px;
+		display:none;
+	}
+
+	div.activa 
+	{
+		display:block;
+	}
+
+
+</style>
+
+</head>
+<body>
+
+
+	<h1> Tabs </h1>
+	<script type="text/javascript">
+		window.onload=function () 
+		{
+			var tabs= [];
+			
+				for (var i=0; i<3; i++) 
+					{
+
+						
+							tabs[i]= 
+							{
+								titulo:"tabs " + i, contenido:"Contenido de la tab " +i
+							}
+					}
+
+						
+
+
+						var navegacion=document.createElement("nav"); // documen hace referencia al documento de ahora y nos crea una etiqueta nav 
+						// document.body.appendChild(navegacion); // se añade al body en el codigo html
+						var lista=document.createElement("ul");
+						
+							for (var i=0; i<tabs.length; i++)
+							{
+
+								var item= document.createElement("li"); // se crea li
+								var enlace=document.createElement("a"); //se crea el enlace
+								enlace.href="#"; // le decimos a donde navegar
+								enlace.className = (i==0)?"activo":""; // poner la clase activa al primer enlace
+								enlace.innerHTML=tabs[i].titulo;	// el enlace se repite 3 veces por la i
+								item.appendChild(enlace);	// el enlace se 
+								lista.appendChild(item);
+							}
+
+						navegacion.appendChild(lista);
+						document.body.appendChild(navegacion);
+						console.log (navegacion);
+
+
+							for (var i=0; i<tabs.length; i++)
+							{
+								var contenedor = document.createElement("div");
+								contenedor.className = (i==0)?"activa":""; // es una condición si i=a 0 activa si no "" vacio (operador ternario)  el primer div se le añade la class activa
+								var parrafo = document.createElement("p");
+								parrafo.innerHTML=tabs [i].contenido;
+								contenedor.appendChild(parrafo);
+								document.body.appendChild(contenedor);
+
+
+							}
+
+
+
+							// CLAUSURAS //
+
+
+							var enlaces=document.getElementsByTagName ("a");
+							var contenedores=document.getElementsByTagName ("div");
+							console.log (contenedores);
+
+
+							for (var i=0; i<enlaces.length; i++) // enlaces [<a>, <a>, <a>]
+							{
+								
+
+									(
+									function (indice)
+									{
+										enlaces[indice].onclick=function(evento)
+										{
+											evento.preventDefault(); //para que no vaya al link
+											console.log (indice); 
+
+												for ( var j=0; j<enlaces.length; j++) //da igual si enlaces o contenedores
+												{
+													enlaces[j].className=""; //quitar el className de los enlaces
+													contenedores[j].className=""; //quitar el claseeName de los contenedores
+												}
+												enlaces[indice].className="activo";
+												contenedores[indice].className="activa";
+
+										}
+
+									}
+									)(i);  // indice = i									
+
+
+								/* enlaces[i].onclick=function(evento)
+								{
+									evento.preventDefault(); //para que no vaya al link
+									console.log (i); 
+
+								}*/ 
+
+
+							}
+
+
+		}
+
+
+
+
+	</script>
+
+</body>
+</html>

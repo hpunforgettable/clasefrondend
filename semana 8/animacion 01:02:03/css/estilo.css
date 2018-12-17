@@ -1,0 +1,25 @@
+
+.boton
+{
+	text-decoration: none;
+	color:#1374B5;
+	border: 1px solid;
+	width: 150px;
+	display: inline-block; 
+	text-align: center;
+	padding: 10px 0;
+
+}
+.cuadro
+{
+	height: 150px;
+	width: 152px;
+	background-color: #838181;
+	margin: 1% 0;
+	position: relative;
+}
+
+.texto
+{
+	display: none;
+}
