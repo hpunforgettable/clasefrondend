@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+	</title>
+	<style type="text/css">
+		body{
+			padding: 0;
+			margin: 0;
+		}
+		.calculadora{
+			width: 500px;
+			padding: 10px;
+			border: 1px solid #CCC;
+			border-radius: 5px;
+			margin: 100px auto 0;
+		}
+		.resultado{
+			padding:5px 10px;
+			background-color: #666;
+			color: #F00;
+			font-size: 1.5em;
+			text-align: right;
+			height:60px;
+		}
+		.contenedor_botones{
+			margin-top: 10px;
+
+		} 
+		.botones_izquierda{
+			float: left;
+			width: 80%;
+
+		}
+		.botones_derecha{
+			float: left;
+			width: 20%;
+
+		}
+		.clearfix{
+			clear: both;
+		}
+		.boton{
+			border: 1px solid#CCC;
+			border-radius: 5px;
+			text-align: center;
+			text-decoration: none;
+			padding: 10px 0 ;
+			float: left;
+
+		}
+		.botones_izquierda .boton{
+			margin: 10px 5%;
+			width: calc(23% - 2px);
+
+		}
+		.botones_derecha .boton{
+			margin: 10px auto ;
+			width: 85%;
+
+		}
+
+	</style>
+</head>
+
+<body>
+<div class="calculadora">
+	<p class="resultado">
+	</p>
+	<div class="contenedor_botones">
+		<div class="botones_izquierda">
+			<a class="boton" data-tipo="0" href="#" >1</a>
+			<a class="boton" data-tipo="0" href="#" >2</a>
+			<a class="boton" data-tipo="0" href="#" >3</a>
+			<a class="boton" data-tipo="0" href="#" >4</a>
+			<a class="boton" data-tipo="0" href="#" >5</a>
+			<a class="boton" data-tipo="0" href="#" >6</a>
+			<a class="boton" data-tipo="0" href="#" >7</a>
+			<a class="boton" data-tipo="0" href="#" >8</a>
+			<a class="boton" data-tipo="0" href="#" >9</a>
+			<a class="boton" data-tipo="0" href="#" >0</a>
+			<a class="boton" data-tipo="1" data-funcion="5" href="#" >.</a>			
+			<a class="boton" data-tipo="1" data-funcion="6" href="#" >CE</a>
+		</div>
+		<div class="botones_derecha">
+			<a class="boton" data-tipo="1" data-funcion="1" href="#" >+</a>
+			<a class="boton" data-tipo="1" data-funcion="2" href="#" >-</a>
+			<a class="boton" data-tipo="1" data-funcion="3" href="#" >*</a>
+			<a class="boton" data-tipo="1" data-funcion="4" href="#" >/</a>
+			<a class="boton" data-tipo="1" data-funcion="0" href="#" >=</a>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	window.onload=function(){
+		var resultado =document.getElementsByClassName("resultado")[0];
+		var botones= document.getElementsByClassName("boton");
+		var decimal = 0 ;
+		var operacion= 0;
+		var operando=[0,0];
+		var limpiar_pantalla=0;
+
+
+		for(var i =0; i<botones.length; i++){
+			(function(indice){
+				botones[indice].onclick=function(evento){
+					evento.preventDefault();
+
+					if(botones[indice].dataset.tipo<1){
+
+							  if(limpiar_pantalla>0){
+							  	resultado.innerHTML=botones[indice].innerHTML;
+							  	}
+							  	else{
+							  		 resultado.innerHTML=resultado.innerHTML+botones[indice].innerHTML;
+							  	}
+						
+					}
+					else{
+						switch(botones[indice].dataset.funcion){
+							case"0":
+							if(resultado.innerHTML!=""){
+								if(operando[1]!=0){
+									resultado.innerHTML=resolver(operando,operacion,0); 
+
+								}else{
+									if(operando[0]!=0){
+										operando[1]=Number(resultado.innerHTML);
+										resultado.innerHTML=resolver(operando,operacion,0); 
+									}
+								}
+							}
+							break;
+							case"5":
+							if(decimal<1 && resultado.innerHTML!=""){
+								resultado.innerHTML=resultado.innerHTML+botones[indice].innerHTML;
+								decimal=1;	
+							}
+							break;
+							case"6":
+								resultado.innerHTML="";
+								operacion=0;
+								decimal=0;
+								operando=[0,0];	
+							
+							break;
+							default:
+							var operador_temporal=0;
+							if(operacion>0){
+								operador_temporal=botones[indice].dataset.funcion;
+							}
+							else{
+								operacion=botones[indice].dataset.funcion;
+							}
+							if(resultado.innerHTML!=""){
+								if(operando[1]!=0){
+									resultado.innerHTML=resolver(operando,operacion,operador_temporal); 
+
+								}else{
+									if(operando[0]!=0){
+										operando[1]=Number(resultado.innerHTML);
+										resultado.innerHTML=resolver(operando,operacion,operador_temporal); 
+									}else{
+										operando[0]=Number(resultado.innerHTML);
+										limpiar_pantalla=1;
+										decimal = 0;
+
+									}
+								}
+
+
+							}
+							break;
+								}
+
+
+						}
+					};
+
+			})(i);
+		}
+
+		function resolver(numeros,tipo,temporal){
+			console.log("a");
+			var resultado=0;
+			switch(tipo){
+				case"1":
+				resultado=numeros[0]+numeros[1];
+				break;
+				case"2":
+				resultado=numeros[0]-numeros[1];
+				break;
+				case"3":
+				resultado=numeros[0]*numeros[1];
+				break;
+				case"4":
+				resultado=numeros[0]/numeros[1];
+				break;
+			}
+			decimal=0;
+			operando=[(temporal>0)?resultado:0,0];
+			limpiar_pantalla=(temporal>0)?resultado:0;
+			operacion=(temporal>0)?temporal:0;
+			return resultado;
+		}
+
+
+
+
+	}
+</script>
+</body>
+
+</html>ss
